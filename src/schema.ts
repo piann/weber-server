@@ -1,4 +1,3 @@
-import {GraphQLSchema} from "graphql";
 import {makeExecutableSchema} from "graphql-tools";
 import * as path from "path";
 import {fileLoader, mergeResolvers, mergeTypes} from "merge-graphql-schemas";
