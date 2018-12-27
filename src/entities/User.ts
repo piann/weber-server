@@ -1,7 +1,10 @@
 import bcrypt from "bcrypt-nodejs";
 import {IsEmail,} from "class-validator";
-import {BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate} from "typeorm";
-
+import {ManyToOne, BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany} from "typeorm";
+import Chat from "./Chat";
+import Message from "./Message";
+import Verification from "./Verification";
+import Ride from "./Ride";
 const BCRYPT_ROUNDS = 10;
 
 @Entity()
@@ -51,7 +54,17 @@ class User extends BaseEntity{
     lastLat: number;
     @Column({type:"double precision", default:0})   
     lastOrientation: number
-    
+    @ManyToOne(type=>Chat, chat=>chat.participants)
+    chat:Chat;
+    @OneToMany(type => Message, message => message.user)
+    messages:Message[]
+    @OneToMany(type => Verification, verification=>verification.user)
+    verifications: Verification[];
+    @OneToMany(type => Ride, ride => ride.passenger)
+    rideAsPassenger: Ride[];
+    @OneToMany(type => Ride, ride => ride.driver)
+    rideAsDriver: Ride[];
+
 
     @CreateDateColumn() createdAt: string;
     @UpdateDateColumn() updateAy: string;
