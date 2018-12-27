@@ -12,9 +12,9 @@ class User extends BaseEntity{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column({type:"text", unique:true})
+    @Column({type:"text", nullable:true})
     @IsEmail()
-    email:string;
+    email:string | null;
 
     @Column({type:"boolean", default:false})
     verifiedEmail:boolean;
@@ -25,20 +25,20 @@ class User extends BaseEntity{
     @Column({type:"text"})
     lastName: string;
 
-    @Column({type:"int"})
+    @Column({type:"int", nullable:true})
     age: number;
 
-    @Column({type:"text"})
+    @Column({type:"text",nullable:true})
     password:string;
 
-    @Column({type:"text"})
+    @Column({type:"text", nullable:true})
     phoneNumber: string;
 
     @Column({type:"boolean", default:false})
     verifiedPhoneNumber: boolean;
 
     @Column({type:"text"})
-    profilePhoto;
+    profilePhoto: string;
 
     @Column({type:"boolean", default:false})
     isDriving: boolean;
@@ -53,7 +53,11 @@ class User extends BaseEntity{
     @Column({type:"double precision", default:0})
     lastLat: number;
     @Column({type:"double precision", default:0})   
-    lastOrientation: number
+    lastOrientation: number;
+
+    @Column({type:"text", nullable:true})
+    fbId: string;
+
     @ManyToOne(type=>Chat, chat=>chat.participants)
     chat:Chat;
     @OneToMany(type => Message, message => message.user)
