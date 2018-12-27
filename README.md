@@ -13,7 +13,7 @@ Weber: Uber Clone Coding
 
 ---
 
-### Authentication:
+### Authentication
 
 - [ ] Generate JWT
 - [ ] Verifiy JWT
