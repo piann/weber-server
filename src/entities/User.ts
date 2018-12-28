@@ -1,9 +1,8 @@
-import bcrypt from "bcrypt-nodejs";
+import bcrypt from "bcrypt";
 import {IsEmail,} from "class-validator";
 import {ManyToOne, BaseEntity, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany} from "typeorm";
 import Chat from "./Chat";
 import Message from "./Message";
-import Verification from "./Verification";
 import Ride from "./Ride";
 const BCRYPT_ROUNDS = 10;
 
@@ -62,8 +61,8 @@ class User extends BaseEntity{
     chat:Chat;
     @OneToMany(type => Message, message => message.user)
     messages:Message[]
-    @OneToMany(type => Verification, verification=>verification.user)
-    verifications: Verification[];
+    //@OneToMany(type => Verification, verification=>verification.user)
+    //verifications: Verification[];
     @OneToMany(type => Ride, ride => ride.passenger)
     rideAsPassenger: Ride[];
     @OneToMany(type => Ride, ride => ride.driver)
@@ -91,7 +90,7 @@ class User extends BaseEntity{
     }
 
     public comparePassword(password:string):Promise<boolean> {
-        return bcrypt.compare(password, this,password)
+        return bcrypt.compare(password, this.password)
     }
 }
 
