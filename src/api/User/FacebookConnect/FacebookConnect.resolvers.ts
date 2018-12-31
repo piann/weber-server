@@ -4,6 +4,7 @@ import User from "../../../entities/User";
 import createJWT from "../../../utils/createJWT";
 
 const resolvers:Resolvers = {
+
     Mutation:{
         FacebookConnect:async (_, args:FacebookConnectMutationArgs):Promise<FacebookConnectResponse> =>{
             try{
