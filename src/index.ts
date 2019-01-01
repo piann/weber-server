@@ -20,7 +20,6 @@ const appOptions:Options = {
 const handleAppStart = () => console.log(`listening on port ${PORT}`);
 
 
-console.log(process.env);
 createConnection(connectionOptions).then(() => {
     app.start(appOptions, handleAppStart);    
 });
