@@ -1,8 +1,10 @@
 import {Resolvers} from "../../../types/resolvers";
+import privateResolver, {} from "../../../utils/privateResolver";
+
 
 const resolvers: Resolvers = {
     Query:{
-        GetMyProfile: async (_,__,{req}) =>{
+        GetMyProfile: privateResolver((_,__,{req}) =>{
             try{
             const {user} = req;
             return {
@@ -18,7 +20,7 @@ const resolvers: Resolvers = {
                 user:null
             }
         }
-    }
+    })
     }
 };
 
