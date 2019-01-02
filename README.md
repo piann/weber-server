@@ -16,15 +16,14 @@ Weber: Uber Clone Coding
 ### Authentication
 
 - [x] Generate JWT
-- [ ] Verifiy JWT
+- [x] Verifiy JWT
 
 ---
 
 ### Private Resolvers
 
-- [ ] Verify Email
-- [ ] Get my Profile
-- [ ] Request Email Verification
+- [x] Get my Profile
+- [x] Request Email Verification
 - [ ] Complete Email Verification
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
