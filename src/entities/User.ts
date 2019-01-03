@@ -77,10 +77,6 @@ class User extends BaseEntity{
     };
 
     private hashPassword(password:string): Promise<string>{
-        console.log("!!!!!!!!!!!!!!!!!hash process!!!!!!!!!!!!!!!!!!!!!");
-        console.log(password);
-        console.log("!!!!!!!!!!!!!!!!!hash process!!!!!!!!!!!!!!!!!!!!!");
-        
         return bcrypt.hash(password, BCRYPT_ROUNDS);
     }
 
