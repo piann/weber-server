@@ -15,8 +15,13 @@ const resolvers: Resolvers = {
                     try{
                         const verification = await Verification.findOne({key, payload:user.email});
                         if(verification){
-                            user.verifiedEmail=true;
-                            user.save();
+                            //user.verifiedEmail=true;
+                            //user.save(); // this way of updating has problem of double-hashing password
+                             
+                            delete user.updateAt // updateAt is automatically added, so is should be excluded preventing multiple assignments to same column
+                            console.log("!!!!!!!!!!!!!!!!!!!USERINFO!!!!!!!!!!!!!!")
+                            console.log(user);
+                            await User.update({id:user.id},{...user, verifiedEmail:true});
                             return{
                                 ok:true,
                                 error:null

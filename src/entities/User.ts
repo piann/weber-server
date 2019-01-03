@@ -70,13 +70,17 @@ class User extends BaseEntity{
 
 
     @CreateDateColumn() createdAt: string;
-    @UpdateDateColumn() updateAy: string;
+    @UpdateDateColumn() updateAt: string;
 
     get fullName(): string{
         return `${this.firstName} ${this.lastName}`;
     };
 
     private hashPassword(password:string): Promise<string>{
+        console.log("!!!!!!!!!!!!!!!!!hash process!!!!!!!!!!!!!!!!!!!!!");
+        console.log(password);
+        console.log("!!!!!!!!!!!!!!!!!hash process!!!!!!!!!!!!!!!!!!!!!");
+        
         return bcrypt.hash(password, BCRYPT_ROUNDS);
     }
 
