@@ -18,7 +18,7 @@ const resolvers: Resolvers = {
                             //user.verifiedEmail=true;
                             //user.save(); // this way of updating has problem of double-hashing password
 
-                            delete user.updateAt // updateAt is automatically added, so is should be excluded preventing multiple assignments to same column
+                            delete user.updatedAt // updatedAt is automatically added, so is should be excluded preventing multiple assignments to same column
                             await User.update({id:user.id},{...user, verifiedEmail:true});
                             return{
                                 ok:true,

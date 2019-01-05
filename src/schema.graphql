@@ -3,7 +3,7 @@ type Chat {
   messages: [Message]
   participants: [User]
   createdAt: String!
-  updateAt: String!
+  updatedAt: String!
 }
 
 type Message {
@@ -12,7 +12,7 @@ type Message {
   chat: Chat!
   user: User!
   createdAt: String!
-  updateAt: String!
+  updatedAt: String!
 }
 
 type AddPlaceResponse {
@@ -44,6 +44,18 @@ type DeletePlaceResponse {
 type EditPlaceResponse {
   ok: Boolean!
   error: String
+}
+
+type GetMyPlaceResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
+}
+
+type Query {
+  GetMyPlace: GetMyPlaceResponse!
+  GetMyProfile: GetMyProfileResponse!
+  user: User
 }
 
 type Place {
@@ -107,11 +119,6 @@ type FacebookConnectResponse {
 type GetMyProfileResponse {
   ok: Boolean!
   error: String
-  user: User
-}
-
-type Query {
-  GetMyProfile: GetMyProfileResponse!
   user: User
 }
 

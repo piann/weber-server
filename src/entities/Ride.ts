@@ -12,7 +12,7 @@ class Ride extends BaseEntity{
     status: rideStatus;
     @Column({"type":"text",
     })
-    pickUpAddress:String;
+    pickUpAddress:string;
     @Column({"type":"double precision",default:0,})
     pickUpLat:number;
     @Column({"type":"double precision",default:0,})

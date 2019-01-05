@@ -11,7 +11,7 @@ const resolvers: Resolvers = {
                 //user.isDriving = !user.isDriving;
                 //user.save();
                 try{
-                delete user.updateAt // updateAt is automatically added, so is should be excluded preventing multiple assignments to same column
+                delete user.updatedAt // updatedAt is automatically added, so is should be excluded preventing multiple assignments to same column
                 await User.update({id:user.id},{...user, isDriving:!user.isDriving});
                 return{
                     ok:true,
