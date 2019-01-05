@@ -101,6 +101,10 @@ type CompletePhoneVerificationResponse {
   token: String
 }
 
+type Subscription {
+  DriversSubscription: User
+}
+
 type EmailSignInResponse {
   ok: Boolean!
   error: String
@@ -147,6 +151,7 @@ type User {
   verifiedEmail: Boolean!
   firstName: String!
   lastName: String!
+  fullName: String!
   age: Int
   password: String
   phoneNumber: String
