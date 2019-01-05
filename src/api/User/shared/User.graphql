@@ -4,6 +4,7 @@ type User {
     verifiedEmail:Boolean!
     firstName :String!
     lastName: String!
+    fullName: String!
     age: Int
     password: String
     phoneNumber: String
