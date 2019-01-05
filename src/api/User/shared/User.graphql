@@ -24,6 +24,7 @@ type User {
     #verifications:[Verification]
     rideAsPassenger:[Ride]
     rideAsDriver:[Ride]
+    places:[Place]
 }
 
 type Query{
