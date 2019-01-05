@@ -15,7 +15,10 @@ class Place extends BaseEntity{
     @Column({type:"text"})
     address:string;
     @Column({type:"boolean", default:false})
-    isFav:boolean; 
+    isFav:boolean;
+    @Column({type:"int", nullable:true}) // This column is automatically processed
+    userId:number; //because of naming ("user" exist)
+
     @ManyToOne(type => User,user => user.places)
     user:User;
     @CreateDateColumn()

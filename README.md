@@ -27,9 +27,9 @@ Weber: Uber Clone Coding
 - [x] Complete Email Verification
 - [x] Update my Profile
 - [x] Toggle Driving Mode
-- [ ] Report Location / Orientation
-- [ ] Add Place
-- [ ] Edit Place
+- [x] Report Location / Orientation
+- [x] Add Place
+- [x] Edit Place
 - [ ] Delete Place
 - [ ] Get My Places
 - [ ] See Nearby Drivers
