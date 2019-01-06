@@ -12,7 +12,7 @@ const resolvers:Resolvers ={
                 const nonNullInfo = cleanNullArgs(args);
                 try{
                     await User.update({id:user.id}, {...nonNullInfo});
-                    const updatedUser = User.findOne({id:user.id});
+                    const updatedUser = await User.findOne({id:user.id});
                     pubSub.publish("driverUpdate", {DriversSubscription:updatedUser}); // args : channel name, payload(must be same name in scheme(graphql)) 
                     return{
                         ok:true,
