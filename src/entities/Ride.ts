@@ -7,7 +7,7 @@ class Ride extends BaseEntity{
     @PrimaryGeneratedColumn()
     id:number;
     @Column({"type":"text",
-    enum:["ACCEPTED","FINISHED","CANCELED","REQUESTING","ONROUTE"], default:"ACCEPTED"
+    enum:["ACCEPTED","FINISHED","CANCELED","REQUESTING","ONROUTE"], default:"REQUESTING"
     })
     status: rideStatus;
     @Column({"type":"text",
@@ -17,7 +17,7 @@ class Ride extends BaseEntity{
     pickUpLat:number;
     @Column({"type":"double precision",default:0,})
     pickUpLng:number;
-    @Column({"type":"double precision",default:0,})
+    @Column({"type":"text"})
     dropOffAddress:string;
     @Column({"type":"double precision",default:0,})
     dropOffLat:number;
