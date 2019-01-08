@@ -10,7 +10,7 @@ const resolvers:Resolvers = {
             async(_, args:RequestRideMutationArgs, {req, pubSub}):Promise<RequestRideResponse> =>{
                 try{
                     const user:User = req.user;
-                    if(user.isRiding){
+                    if(!user.isRiding){
                         const ride = await Ride.create({...args,passenger:user}).save();
                         pubSub.publish("rideRequest", {NearbyRideSubscription:ride})
                         user.isRiding = true;
