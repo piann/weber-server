@@ -1,5 +1,5 @@
 type UpdateRideStatusResponse{
-    ok:Boolean
+    ok:Boolean!
     error:String
 }
 

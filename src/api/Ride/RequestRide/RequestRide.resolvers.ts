@@ -13,8 +13,7 @@ const resolvers:Resolvers = {
                     if(!user.isRiding){
                         const ride = await Ride.create({...args,passenger:user}).save();
                         pubSub.publish("rideRequest", {NearbyRideSubscription:ride})
-                        user.isRiding = true;
-                        user.save();
+                        User.update({id:user.id},{isRiding:true});
                         return{
                         ok:true,
                         error:null,

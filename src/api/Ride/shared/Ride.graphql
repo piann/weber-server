@@ -12,7 +12,7 @@ type Ride{
     distance:String!
     passengerId:Int!
     passenger:User!
-    driverId:Int!
+    driverId:Int
     driver:User!
     createdAt:String!
     updatedAt:String
