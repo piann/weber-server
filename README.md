@@ -34,10 +34,10 @@ Weber: Uber Clone Coding
 - [x] Get My Places
 - [x] See Nearby Drivers
 - [x] Subscribe to Nearby Drivers
-- [ ] Request a Ride
-- [ ] Get Nearby Ride Requests
-- [ ] Subscribe to Nearby Ride Requests
-- [ ] Update Ride Status
+- [x] Request a Ride
+- [x] Get Nearby Ride Requests
+- [x] Subscribe to Nearby Ride Requests
+- [x] Update Ride Status
 - [ ] Get Ride
 - [ ] Subscribe to Ride Status
 - [ ] Create a Chat Room
