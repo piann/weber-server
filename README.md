@@ -38,8 +38,8 @@ Weber: Uber Clone Coding
 - [x] Get Nearby Ride Requests
 - [x] Subscribe to Nearby Ride Requests
 - [x] Update Ride Status
-- [ ] Get Ride
-- [ ] Subscribe to Ride Status
+- [x] Get Ride
+- [x] Subscribe to Ride Status
 - [ ] Create a Chat Room
 - [ ] Get Chat Room Messages
 - [ ] Send a Chat Message
