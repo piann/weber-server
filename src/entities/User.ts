@@ -58,12 +58,16 @@ class User extends BaseEntity{
     @Column({type:"text", nullable:true})
     fbId: string;
 
-    @ManyToOne(type=>Chat, chat=>chat.participants)
-    chat:Chat;
+    @OneToMany(type => Chat, chat => chat.passenger)
+    chatAsPassenger: Ride[];
+    @OneToMany(type => Chat, chat => chat.driver)
+    chatAsDriver: Ride[];
+
     @OneToMany(type => Message, message => message.user)
     messages:Message[]
     //@OneToMany(type => Verification, verification=>verification.user)
     //verifications: Verification[];
+
     @OneToMany(type => Ride, ride => ride.passenger)
     rideAsPassenger: Ride[];
     @OneToMany(type => Ride, ride => ride.driver)
