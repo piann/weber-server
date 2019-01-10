@@ -10,7 +10,7 @@ const resolvers:Resolvers = {
             async(_, args:RequestRideMutationArgs, {req, pubSub}):Promise<RequestRideResponse> =>{
                 try{
                     const user:User = req.user;
-                    if(!user.isRiding){
+                    if(!user.isRiding && !user.isDriving){
                         const ride = await Ride.create({...args,passenger:user}).save();
                         pubSub.publish("rideRequest", {NearbyRideSubscription:ride})
                         User.update({id:user.id},{isRiding:true});
@@ -22,7 +22,7 @@ const resolvers:Resolvers = {
                     } else{
                         return{
                             ok:false,
-                            error:"U can't request two rides",
+                            error:"U can't request two rides or you are a driver",
                             ride:null
                         }
                     }

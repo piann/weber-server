@@ -1,7 +1,7 @@
-import { Entity, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, Column, } from "typeorm";
+import {Entity, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, Column, OneToOne, } from "typeorm";
 import Message from "./Message";
 import User from "./User";
-
+import Ride from "./Ride";
 @Entity()
 class Chat extends BaseEntity{
     @PrimaryGeneratedColumn()
@@ -18,6 +18,12 @@ class Chat extends BaseEntity{
     driverId:number;
     @ManyToOne(type => User,user=>user.chatsAsDriver)
     driver:User;    
+
+    @Column({nullable:true})
+    rideId:number;
+
+    @OneToOne(type=>Ride, ride=>ride.chat)
+    ride:Ride;
 
     @CreateDateColumn()
     createdAt:string;

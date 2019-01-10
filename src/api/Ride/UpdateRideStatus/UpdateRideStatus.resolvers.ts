@@ -6,7 +6,7 @@ import {
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
-import Chat from "src/entities/Chat";
+import Chat from "../../../entities/Chat";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -18,7 +18,6 @@ const resolvers: Resolvers = {
       ): Promise<UpdateRideStatusResponse> => {
         
         const user: User = req.user;
-        console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         if (user.isDriving) {
           try {
             let ride: Ride | undefined;
@@ -32,11 +31,12 @@ const resolvers: Resolvers = {
               if (ride) {
                 ride.driver = user;
                 User.update({id:user.id},{isTaken:true})
-                await Chat.create({
+                const chat = await Chat.create({
                   driver:user,
-                  passenger: ride.passenger
+                  passenger:ride.passenger
                 }).save();
-                
+                ride.chat = chat;
+                ride.save();
               }
             } else {
               ride = await Ride.findOne({
