@@ -18,6 +18,7 @@ class Chat extends BaseEntity{
     driverId:number;
     @ManyToOne(type => User,user=>user.chatsAsDriver)
     driver:User;    
+
     @CreateDateColumn()
     createdAt:string;
     @UpdateDateColumn()

@@ -40,7 +40,7 @@ Weber: Uber Clone Coding
 - [x] Update Ride Status
 - [x] Get Ride
 - [x] Subscribe to Ride Status
-- [ ] Create a Chat Room
+- [x] Create a Chat Room
 - [ ] Get Chat Room Messages
 - [ ] Send a Chat Message
 - [ ] Subscribe to Chat Room Messages

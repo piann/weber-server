@@ -6,6 +6,7 @@ import {
 } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
+import Chat from "src/entities/Chat";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -26,11 +27,15 @@ const resolvers: Resolvers = {
                 {
                   id: args.rideId,
                   status: "REQUESTING"
-                },
+                },{relations:["passenger"]}
                 );
               if (ride) {
                 ride.driver = user;
                 User.update({id:user.id},{isTaken:true})
+                await Chat.create({
+                  driver:user,
+                  passenger: ride.passenger
+                }).save();
                 
               }
             } else {
