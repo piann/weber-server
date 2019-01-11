@@ -9,7 +9,7 @@ import Message from "../../../entities/Message";
 const resolvers:Resolvers={
     Mutation:{
         SendChatMessage: privateResolver(
-        async(_,args:SendChatMessageMutationArgs,{req}):Promise<SendChatMessageResponse> =>{
+        async(_,args:SendChatMessageMutationArgs,{req, pubSub}):Promise<SendChatMessageResponse> =>{
             try{
             const user:User = req.user;
             const text = args.text;
@@ -20,7 +20,8 @@ const resolvers:Resolvers={
                         text,
                         chat,
                         user
-                    });
+                    }).save();
+                    pubSub.publish("newChatMessage", {MessageSubscription:message});
                     return{
                         ok:true,
                         error:null,
