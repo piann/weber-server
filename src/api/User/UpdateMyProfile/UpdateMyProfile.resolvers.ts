@@ -8,7 +8,7 @@ const resolvers: Resolvers = {
     Mutation: {
         UpdateMyProfile: privateResolver(
             async(_, args:UpdateMyProfileMutationArgs, {req}):Promise<UpdateMyProfileResponse> => {
-                const {user} = req.user;
+                const user = req.user;
                 if(user){
                     let nonNullInfo:any = cleanNullArgs(args);
                     
