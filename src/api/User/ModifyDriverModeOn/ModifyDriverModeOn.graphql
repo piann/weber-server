@@ -1,7 +1,7 @@
-type ModifyDriverModeOnResponse{
+type ModifyDrivingStatusResponse{
     ok:Boolean!
     error:String
 }
 type Mutation {
-    ModifyDriverModeOn(driverModeOn:Boolean!): ModifyDriverModeOnResponse!
+    ModifyDrivingStatus(driverModeOn:Boolean!, isDriving:Boolean): ModifyDrivingStatusResponse!
 }
