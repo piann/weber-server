@@ -39,6 +39,9 @@ class User extends BaseEntity{
 
     @Column({type:"text"})
     profilePhoto: string;
+    
+    @Column({type:"boolean", default:false})
+    driverModeOn:boolean;
 
     @Column({type:"boolean", default:false})
     isDriving: boolean;

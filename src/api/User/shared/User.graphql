@@ -12,6 +12,7 @@ type User {
     profilePhoto: String
     createdAt: String!
     updatedAt: String
+    driverModeOn: Boolean!
     isDriving: Boolean!
     isRiding: Boolean! # if user is driver and taking customer
     isTaken: Boolean! # if user is in taxi and is moving
