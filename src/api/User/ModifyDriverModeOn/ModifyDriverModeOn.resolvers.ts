@@ -10,11 +10,19 @@ const resolvers: Resolvers = {
                 const user:User = req.user;
                 if(user){
                     try{
-                        const driverModeOn = args.driverModeOn
-                        let isDriving = user.isDriving;
-                        if(args.isDriving !== null){
-                            isDriving = args.isDriving;
+                        
+                        let {driverModeOn, isDriving} = user;
+                        if(args.isDriving !== undefined){
+                            if(args.isDriving !== null){
+                                isDriving = args.isDriving;
+                            }
                         }
+                        if(args.driverModeOn !== undefined){
+                            if(args.driverModeOn !== null){
+                                driverModeOn = args.driverModeOn;
+                            }
+                        }
+                        console.log(driverModeOn)
                         delete user.updatedAt // updatedAt is automatically added, so is should be excluded preventing multiple assignments to same column
                         await User.update({id:user.id},{...user, driverModeOn, isDriving});
                         return{

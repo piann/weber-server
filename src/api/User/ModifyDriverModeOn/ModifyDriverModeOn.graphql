@@ -3,5 +3,5 @@ type ModifyDrivingStatusResponse{
     error:String
 }
 type Mutation {
-    ModifyDrivingStatus(driverModeOn:Boolean!, isDriving:Boolean): ModifyDrivingStatusResponse!
+    ModifyDrivingStatus(driverModeOn:Boolean, isDriving:Boolean): ModifyDrivingStatusResponse!
 }
