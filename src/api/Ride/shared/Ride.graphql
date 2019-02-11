@@ -10,10 +10,10 @@ type Ride{
     price:Float!
     duration:String!
     distance:String!
-    passengerId:Int!
+    passengerId:Int
     passenger:User!
     driverId:Int
-    driver:User!
+    driver:User
     chatId:Int
     chat:Chat
     createdAt:String!
