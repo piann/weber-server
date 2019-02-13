@@ -13,7 +13,6 @@ const resolvers:Resolvers = {
                     const ride = await Ride.findOne({id:args.rideId},{relations:["passenger", "driver"]});
                     if(ride){
                         if(ride.passengerId === user.id || ride.driverId === user.id){
-                            console.log("return ride");
                             return{
                                 ok:true,
                                 error:null,

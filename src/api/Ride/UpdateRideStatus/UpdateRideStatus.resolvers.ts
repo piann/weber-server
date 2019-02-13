@@ -42,7 +42,7 @@ const resolvers: Resolvers = {
               ride = await Ride.findOne({
                 id: args.rideId,
                 driver: user
-              });
+              }, {relations:["passenger", "driver"]});
             }
             if (ride) {
               ride.status = args.status;
