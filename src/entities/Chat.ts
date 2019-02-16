@@ -1,4 +1,4 @@
-import {Entity, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, Column, OneToOne, } from "typeorm";
+import {Entity, BaseEntity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, Column, OneToOne, JoinColumn, } from "typeorm";
 import Message from "./Message";
 import User from "./User";
 import Ride from "./Ride";
@@ -23,6 +23,7 @@ class Chat extends BaseEntity{
     rideId:number;
 
     @OneToOne(type=>Ride, ride=>ride.chat)
+    @JoinColumn()
     ride:Ride;
 
     @CreateDateColumn()

@@ -32,11 +32,14 @@ const resolvers: Resolvers = {
                 ride.driver = user;
                 User.update({id:user.id},{isTaken:true})
                 const chat = await Chat.create({
+                  ride,
                   driver:user,
                   passenger:ride.passenger
                 }).save();
                 ride.chat = chat;
                 ride.save();
+                console.log("!!!!!!!!!!");
+                console.log(ride);
               }
             } else {
               ride = await Ride.findOne({
