@@ -1,0 +1,35 @@
+type User {
+    id : Int!
+    email: String
+    verifiedEmail:Boolean!
+    firstName :String!
+    lastName: String!
+    fullName: String!
+    age: Int
+    password: String
+    phoneNumber: String
+    verifiedPhoneNumber:Boolean!
+    profilePhoto: String
+    createdAt: String!
+    updatedAt: String
+    driverModeOn: Boolean!
+    isDriving: Boolean!
+    isRiding: Boolean! # if user is driver and taking customer
+    isTaken: Boolean! # if user is in taxi and is moving
+    lastLng: Float
+    lastLat: Float
+    lastOrientation: Float
+
+    fbId: String
+    chatsAsPassenger:[Chat]
+    chatsAsDriver:[Chat]
+    messages:[Message]
+    #verifications:[Verification]
+    rideAsPassenger:[Ride]
+    rideAsDriver:[Ride]
+    places:[Place]
+}
+
+type Query{
+    user:User
+}
