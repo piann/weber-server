@@ -15,7 +15,7 @@
         "prebuild": "rm -rf app",
         "build": "tsc",
         "postbuild": "cd src && copy ./api/**/*.graphql ../app/api",
-        "start": "cd app && node ."
+        "start": "cd app && node index.js"
     },
     "dependencies": {
         "@types/bcrypt-nodejs": "^0.0.30",
