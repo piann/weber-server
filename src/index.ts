@@ -1,5 +1,8 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+require('dotenv').config();
+///require('now-env');
+
+console.log(process.env);
+
 
 
 import {Options} from "graphql-yoga";

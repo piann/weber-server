@@ -1,0 +1,19 @@
+{
+    "name":"weber-server",
+    "version":1,
+    "builds": [
+        { "src": "/dist/index.js", "use": "@now/node" }
+    ],
+    "routes": [
+        { "src": "/dist/(.*)", "dest": "/dist/index.js" }
+    ],
+    "env":{"DB_USERNAME":"@db_username",
+        "DB_PASSWORD":"@db_password",
+        "DB_ENDPOINT":"@db_endpoint",
+        "TWILIO_SID":"@twilio_sid",
+        "TWILIO_PHONE":"@twilio_phone",
+        "TWILIO_TOKEN":"@twilio_token",
+        "JWT_TOKEN":"@jwt_token",
+        "MAILGUN_API_KEY":"@mailgun_api_key"
+    }
+}
