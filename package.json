@@ -15,7 +15,7 @@
         "prebuild": "rm -rf dist",
         "build": "tsc",
         "postbuild": "cd src && copy ./api/**/*.graphql ../dist/api ",
-        "start": "cd dist && node . "
+        "start": "cd dist && node index.js "
     },
     "dependencies": {
         "@types/bcrypt-nodejs": "^0.0.30",
