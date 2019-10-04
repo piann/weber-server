@@ -11,10 +11,11 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -48,13 +49,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var User_1 = __importDefault(require("../../../entities/User"));
 var createJWT_1 = __importDefault(require("../../../utils/createJWT"));
 var resolvers = {
     Mutation: {
-        FacebookConnect: function (_, args) { return __awaiter(_this, void 0, void 0, function () {
+        FacebookConnect: function (_, args) { return __awaiter(void 0, void 0, void 0, function () {
             var fbId, existingUser, token, error_1, fbId, newUser, token, error_2;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -83,7 +83,7 @@ var resolvers = {
                     case 3:
                         _a.trys.push([3, 5, , 6]);
                         fbId = args.fbId;
-                        return [4 /*yield*/, User_1.default.create(__assign({}, args, { profilePhoto: "http://graph.facebook.com/" + fbId + "/picture?type=square" })).save()];
+                        return [4 /*yield*/, User_1.default.create(__assign(__assign({}, args), { profilePhoto: "http://graph.facebook.com/" + fbId + "/picture?type=square" })).save()];
                     case 4:
                         newUser = _a.sent();
                         token = createJWT_1.default(newUser.id);
